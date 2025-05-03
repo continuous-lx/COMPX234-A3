@@ -24,6 +24,10 @@ public class TupleSpace {
     }
 
     public synchronized String put(String key) {
-        
+        if(tuples.containsKey(key)) {
+            return "OK ("+key+","+value+") added";
+        } else {
+            return "ERR"+key+"already exists.";
+        }
     }
 }
