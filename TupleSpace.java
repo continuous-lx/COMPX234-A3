@@ -22,4 +22,8 @@ public class TupleSpace {
             return "ERR"+key+"does not exist.";
         }
     }
+
+    public synchronized String put(String key) {
+        
+    }
 }
