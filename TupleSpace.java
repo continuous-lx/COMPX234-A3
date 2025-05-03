@@ -14,9 +14,10 @@ public class TupleSpace {
   
     public synchronized String get(String key) {
         if(tuples.containsKey(key)) {
-            return
+            return "OK ("+key+","+tuples.get(key)+") removed";
+            tuples.remove(key);
         } else {
-            return
+            return "ERR"+key+"does not exist.";
         }
     }
 }
