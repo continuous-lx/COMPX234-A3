@@ -11,5 +11,8 @@ public class TupleSpace {
             return "key does not exist.";
         }
     }
-
+  
+    public synchronized String get(String key) {
+        
+    }
 }
