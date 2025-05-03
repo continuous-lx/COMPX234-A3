@@ -6,9 +6,9 @@ public class TupleSpace {
 
     public synchronized String read(String key){
         if(tuples.containsKey(key)) {
-
+            return tuples.get(key);
         } else {
-
+            return "key does not exist.";
         }
     }
 
