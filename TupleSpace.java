@@ -13,6 +13,10 @@ public class TupleSpace {
     }
   
     public synchronized String get(String key) {
-
+        if(tuples.containsKey(key)) {
+            return
+        } else {
+            return
+        }
     }
 }
