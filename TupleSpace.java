@@ -6,13 +6,13 @@ public class TupleSpace {
 
     public synchronized String read(String key){
         if(tuples.containsKey(key)) {
-            return tuples.get(key);
+            return "OK ("+key+","+tuples.get(key)+") read";
         } else {
-            return "key does not exist.";
+            return "ERR"+key+"does not exist.";
         }
     }
   
     public synchronized String get(String key) {
-        
+
     }
 }
