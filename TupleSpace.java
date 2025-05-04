@@ -85,6 +85,12 @@ public class TupleSpace {
                 totalKeySize += key.length();
                 totalValueSize += value.length();
             }
+
+            if (entries != 0){
+                aveKeysize = (double)totalKeySize / (double)entries;
+                aveValueSize = (double)totalValueSize / (double)entries;
+                aveTuplesize = ((double)totalKeySize + (double)totalValueSize) / (double)entries;
+            }
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
