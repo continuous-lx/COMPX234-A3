@@ -7,6 +7,7 @@ public class TupleSpace {
     private int totalReads = 0;
     private int totalGets = 0;
     private int totalPuts = 0;
+    private int totalErrors = 0;
 
     public synchronized int getSize() {
         return size;
@@ -22,6 +23,10 @@ public class TupleSpace {
 
     public synchronized int getTotalPut(){
         return totalPuts;
+    }
+
+    public synchronized int getTotalErrors(){
+        return totalErrors;
     }
 
     public synchronized String read(String key){
