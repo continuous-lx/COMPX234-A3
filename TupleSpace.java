@@ -79,7 +79,9 @@ public class TupleSpace {
             int totalValueSize = 0;
 
             for(String key: tuples.keySet()) {
+                entries += 1;
 
+                
             }
         }
         catch(Exception e) {
