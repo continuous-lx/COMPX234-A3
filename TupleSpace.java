@@ -46,7 +46,9 @@ public class TupleSpace {
 
     public synchronized String read(String key){
         if(tuples.containsKey(key)) {
-            return "OK ("+key+","+tuples.get(key)+") read";
+            totalReads += 1;
+            updateAverages();
+            return tuples.get(key);
         } else {
             return "ERR"+key+"does not exist.";
         }
