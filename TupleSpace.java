@@ -8,6 +8,8 @@ public class TupleSpace {
     private int totalGets = 0;
     private int totalPuts = 0;
     private int totalErrors = 0;
+    private double aveTuplesize = 0.0;
+    private double aveKeysize = 0.0;
 
     public synchronized int getSize() {
         return size;
@@ -27,6 +29,14 @@ public class TupleSpace {
 
     public synchronized int getTotalErrors(){
         return totalErrors;
+    }
+
+    public synchronized double getAveTupleSize(){
+        return aveTuplesize;
+    }
+
+    public synchronized double getAveKeySize(){
+        return aveKeysize;
     }
 
     public synchronized String read(String key){
