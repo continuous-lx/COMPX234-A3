@@ -22,6 +22,11 @@ public class Server {
 
         try {
             ServerSocket serverSocket = new ServerSocket(port);
+
+            Thread timerThread = new Thread(()-> {
+
+            });
+            
             Socket clientSocket = serverSocket.accept();
 
         }
