@@ -5,6 +5,7 @@ public class TupleSpace {
     private final HashMap<String, String> tuples = new HashMap<>();
     private int size = 0;
     private int totalReads = 0;
+    private int totalGets = 0;
 
     public synchronized int getSize() {
         return size;
@@ -14,6 +15,9 @@ public class TupleSpace {
         return totalReads;
     }
 
+    public synchronized int getTotalGets(){
+        return totalGets;
+    }
 
     public synchronized String read(String key){
         if(tuples.containsKey(key)) {
