@@ -73,9 +73,14 @@ public class TupleSpace {
     }
 
     private void updateAverages() {
-        int entries = 0;
-        int totalKeySize = 0;
-        int totalValueSize = 0;
-        
+        try {
+            int entries = 0;
+            int totalKeySize = 0;
+            int totalValueSize = 0;
+        }
+        catch(Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 }
