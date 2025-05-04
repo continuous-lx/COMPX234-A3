@@ -71,4 +71,8 @@ public class TupleSpace {
             return "ERR"+key+"already exists.";
         }
     }
+
+    private void updateAverages() {
+        
+    }
 }
