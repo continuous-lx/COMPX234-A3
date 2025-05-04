@@ -73,6 +73,9 @@ public class TupleSpace {
     }
 
     private void updateAverages() {
+        int entries = 0;
+        int totalKeySize = 0;
+        int totalValueSize = 0;
         
     }
 }
