@@ -3,6 +3,11 @@ import java.util.HashMap;
 public class TupleSpace {
 
     private final HashMap<String, String> tuples = new HashMap<>();
+    private int size = 0;
+
+    public synchronized int getSize() {
+        return size;
+    }
 
     public synchronized String read(String key){
         if(tuples.containsKey(key)) {
