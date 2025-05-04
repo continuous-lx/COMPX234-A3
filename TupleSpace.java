@@ -81,7 +81,9 @@ public class TupleSpace {
             for(String key: tuples.keySet()) {
                 entries += 1;
 
-                
+                String value = tuples.get(key);
+                totalKeySize += key.length();
+                totalValueSize += value.length();
             }
         }
         catch(Exception e) {
