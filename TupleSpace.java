@@ -77,6 +77,10 @@ public class TupleSpace {
             int entries = 0;
             int totalKeySize = 0;
             int totalValueSize = 0;
+
+            for(String key: tuples.keySet()) {
+
+            }
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
