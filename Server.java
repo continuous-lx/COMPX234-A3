@@ -9,10 +9,11 @@ public class Server {
 
         int port;
         try {
-
+            port = Integer.parseInt(args[0]);
         } 
         catch(NumberFormatException e) {
-
+            System.out.println("Error: invalid port number. Please enter a valid integer");
+            return;
         }
     }
 }
