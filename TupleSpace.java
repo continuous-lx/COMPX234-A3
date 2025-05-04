@@ -50,7 +50,9 @@ public class TupleSpace {
             updateAverages();
             return tuples.get(key);
         } else {
-            return "ERR"+key+"does not exist.";
+            totalErrors += 1;
+            updateAverages();
+            return "";
         }
     }
   
