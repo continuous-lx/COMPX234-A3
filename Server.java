@@ -58,7 +58,9 @@ public class Server {
                             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                             OutputStream output = threadClientSocket.getOutputStream();
                             PrintWriter writer = new PrintWriter(output, true);
-
+                            while(true) {
+                                
+                            }
 
                         }
                         catch(Exception e){
