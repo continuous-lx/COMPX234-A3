@@ -120,8 +120,21 @@ public class Server {
             if (requestArray.length > 3){
                 value = requestArray[3];
             }
-            
+
             output += messageLength + " ";
+
+            if (command.equals("R")){
+
+            }
+            else if(command.equals("G")) {
+
+            }
+            else if (command.equals("P")) {
+
+            }
+            else {
+                
+            }
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
