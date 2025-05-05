@@ -116,6 +116,11 @@ public class Server {
             String command = requestArray[1];
             String key = requestArray[2];
             String value = "";
+
+            if (requestArray.length > 3){
+                value = requestArray[3];
+            }
+
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
