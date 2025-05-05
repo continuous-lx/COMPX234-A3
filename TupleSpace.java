@@ -80,7 +80,9 @@ public class TupleSpace {
             updateAverages();
             return 1;
         } else {
-            return "ERR"+key+"already exists.";
+            totalErrors += 1;
+            updateAverages();
+            return 0;
         }
     }
 
