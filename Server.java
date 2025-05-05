@@ -143,8 +143,6 @@ public class Server {
             }
             else if (command.equals("P")) {
                 int e = tupleSpace.put(key, value);
-
-                // If e is 1 then the action is successful
                 if (e == 1){
                     output += "OK (" + key + ", " + value + ") added"; 
                 }
@@ -153,7 +151,8 @@ public class Server {
                 }
             }
             else {
-
+                System.out.println("Error: invalid action");
+                return output;
             }
         }
         catch(Exception e) {
