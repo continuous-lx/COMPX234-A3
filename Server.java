@@ -1,4 +1,9 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -46,6 +51,14 @@ public class Server {
                     Socket threadClientSocket = clientSocket;
                     Thread newClient = new Thread(() -> {
                         try {
+
+                            System.out.println("Connection establish with " + threadClientSocket.getInetAddress());
+
+                        	InputStream input = threadClientSocket.getInputStream();
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                            OutputStream output = threadClientSocket.getOutputStream();
+                            PrintWriter writer = new PrintWriter(output, true);
+
 
                         }
                         catch(Exception e){
