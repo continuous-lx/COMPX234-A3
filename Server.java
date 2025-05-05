@@ -120,7 +120,8 @@ public class Server {
             if (requestArray.length > 3){
                 value = requestArray[3];
             }
-
+            
+            output += messageLength + " ";
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
