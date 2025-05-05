@@ -154,6 +154,7 @@ public class Server {
                 System.out.println("Error: invalid action");
                 return output;
             }
+            return output;
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
