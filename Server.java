@@ -108,6 +108,6 @@ public class Server {
     }
 
     public static String processInput(String request) {
-
+        String output = "";
     }
 }
