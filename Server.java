@@ -51,6 +51,14 @@ public class Server {
                         catch(Exception e){
                             System.out.println("Client handling error: " + e.getMessage());
                         }
+                        finally{
+                            try{
+                                threadClientSocket.close();
+                            }
+                            catch(Exception e){
+                                System.out.println("Failed to close client: " + e.getMessage());
+                            }
+                        }
                     });
                     newClient.start();
                 }
