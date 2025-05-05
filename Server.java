@@ -38,6 +38,7 @@ public class Server {
             });
 
             timerThread.setDaemon(true);
+            timerThread.start();
 
             Socket clientSocket = serverSocket.accept();
 
