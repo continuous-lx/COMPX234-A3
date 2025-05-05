@@ -59,7 +59,7 @@ public class Server {
                             OutputStream output = threadClientSocket.getOutputStream();
                             PrintWriter writer = new PrintWriter(output, true);
                             while(true) {
-                                
+                                String request = reader.readLine();
                             }
 
                         }
