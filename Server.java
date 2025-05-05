@@ -46,7 +46,7 @@ public class Server {
                     Socket threadClientSocket = clientSocket;
                     Thread newClient = new Thread(() -> {
                         try {
-                            
+
                         }
                         catch(Exception e){
                             System.out.println("Client handling error: " + e.getMessage());
@@ -55,6 +55,14 @@ public class Server {
                 }
                 catch(IOException e) {
                     System.out.println("Error: " + e.getMessage());
+                }
+                finally{
+                    try{
+                        threadClientSocket.close();
+                    }
+                    catch(Exception e){
+                        System.out.println("Failed to close client: " + e.getMessage());
+                    }
                 }
             }
         }
