@@ -133,7 +133,15 @@ public class Server {
                 }
             }
             else if(command.equals("G")) {
+                value = tupleSpace.get(key);
 
+                // If value is not empty then the action is successful
+                if (value != ""){
+                    output += "OK (" + key + ", " + value + ") removed"; 
+                }
+                else{
+                    output += "ERR (" + key + ") does not exist";
+                }
             }
             else if (command.equals("P")) {
 
