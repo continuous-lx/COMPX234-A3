@@ -28,6 +28,7 @@ public class Server {
                 try {
                     while(!Thread.currentThread().isInterrupted()) {
                         displayServerSummary();
+                        thread.sleep(10000);
                     }
                 }
                 catch(Exception e) {
