@@ -124,7 +124,13 @@ public class Server {
             output += messageLength + " ";
 
             if (command.equals("R")){
-
+                value = tupleSpace.read(key);
+                if (value != ""){
+                    output += "OK (" + key + ", " + value + ") read"; 
+                }
+                else{
+                    output += "ERR (" + key + ") does not exist";
+                }
             }
             else if(command.equals("G")) {
 
@@ -133,7 +139,7 @@ public class Server {
 
             }
             else {
-                
+
             }
         }
         catch(Exception e) {
