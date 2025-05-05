@@ -40,8 +40,14 @@ public class Server {
             timerThread.setDaemon(true);
             timerThread.start();
 
-            Socket clientSocket = serverSocket.accept();
+            while(true) {
+                try {
 
+                }
+                catch(IOException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+            }
         }
         catch(IOException e) {
             System.out.println("Client connection error: " + e.getMessage());
