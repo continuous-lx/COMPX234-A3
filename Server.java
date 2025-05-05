@@ -45,6 +45,8 @@ public class Server {
     }
 
     public static void displayServerSummary() {
+        System.out.println("--- Display method called at: " + System.currentTimeMillis() + " ---");
+
         
     }
 }
