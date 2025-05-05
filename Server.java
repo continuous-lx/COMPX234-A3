@@ -111,7 +111,11 @@ public class Server {
         String output = "";
 
         try {
-
+            String[] requestArray = request.split(" ", 4);
+            String messageLength = requestArray[0];
+            String command = requestArray[1];
+            String key = requestArray[2];
+            String value = "";
         }
         catch(Exception e) {
             System.out.println("Error: " + e.getMessage());
