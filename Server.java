@@ -27,7 +27,7 @@ public class Server {
             Thread timerThread = new Thread(()-> {
                 try {
                     while(!Thread.currentThread().isInterrupted()) {
-
+                        displayServerSummary();
                     }
                 }
                 catch(Exception e) {
