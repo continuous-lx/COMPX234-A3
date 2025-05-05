@@ -61,7 +61,10 @@ public class TupleSpace {
         if(tuples.containsKey(key)) {
             value = tuples.get(key);
             tuples.remove(key);
-            return "OK ("+key+","+value+") removed";
+            size -= 1;
+            totalGets += 1;
+            updateAverages();
+            return value;
         } else {
             return "ERR"+key+"does not exist.";
         }
