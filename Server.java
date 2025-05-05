@@ -44,7 +44,9 @@ public class Server {
                 try {
                     Socket clientSocket = serverSocket.accept();
                     Socket threadClientSocket = clientSocket;
+                    Thread newClient = new Thread(() -> {
 
+                    });
                 }
                 catch(IOException e) {
                     System.out.println("Error: " + e.getMessage());
