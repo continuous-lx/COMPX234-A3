@@ -45,7 +45,12 @@ public class Server {
                     Socket clientSocket = serverSocket.accept();
                     Socket threadClientSocket = clientSocket;
                     Thread newClient = new Thread(() -> {
-
+                        try {
+                            
+                        }
+                        catch(Exception e){
+                            System.out.println("Client handling error: " + e.getMessage());
+                        }
                     });
                 }
                 catch(IOException e) {
