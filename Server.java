@@ -26,7 +26,9 @@ public class Server {
 
             Thread timerThread = new Thread(()-> {
                 try {
+                    while(!Thread.currentThread().isInterrupted()) {
 
+                    }
                 }
                 catch(Exception e) {
                     System.out.println("Error in timer thread: " + e.getMessage());
