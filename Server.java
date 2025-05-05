@@ -25,6 +25,12 @@ public class Server {
             System.out.println("Server is listening on port " + port);
 
             Thread timerThread = new Thread(()-> {
+                try {
+
+                }
+                catch(Exception e) {
+                    System.out.println("Error in timer thread: " + e.getMessage());
+                }
 
             });
 
