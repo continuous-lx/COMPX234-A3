@@ -66,7 +66,9 @@ public class TupleSpace {
             updateAverages();
             return value;
         } else {
-            return "ERR"+key+"does not exist.";
+            totalErrors += 1;
+            updateAverages();
+            return "";
         }
     }
 
