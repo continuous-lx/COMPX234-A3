@@ -28,7 +28,7 @@ public class Server {
                 try {
                     while(!Thread.currentThread().isInterrupted()) {
                         displayServerSummary();
-                        thread.sleep(10000);
+                        Thread.sleep(10000);
                     }
                 }
                 catch(Exception e) {
@@ -36,6 +36,8 @@ public class Server {
                 }
 
             });
+
+            timerThread.setDaemon(true);
 
             Socket clientSocket = serverSocket.accept();
 
