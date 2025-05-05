@@ -43,4 +43,8 @@ public class Server {
             System.out.println("Client connection error: " + e.getMessage());
         }
     }
+
+    public static void displayServerSummary() {
+        
+    }
 }
