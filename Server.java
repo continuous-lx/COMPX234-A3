@@ -43,6 +43,8 @@ public class Server {
             while(true) {
                 try {
                     Socket clientSocket = serverSocket.accept();
+                    Socket threadClientSocket = clientSocket;
+
                 }
                 catch(IOException e) {
                     System.out.println("Error: " + e.getMessage());
