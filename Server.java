@@ -109,5 +109,13 @@ public class Server {
 
     public static String processInput(String request) {
         String output = "";
+
+        try {
+
+        }
+        catch(Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return output;
+        }
     }
 }
