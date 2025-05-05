@@ -134,8 +134,6 @@ public class Server {
             }
             else if(command.equals("G")) {
                 value = tupleSpace.get(key);
-
-                // If value is not empty then the action is successful
                 if (value != ""){
                     output += "OK (" + key + ", " + value + ") removed"; 
                 }
@@ -144,7 +142,15 @@ public class Server {
                 }
             }
             else if (command.equals("P")) {
+                int e = tupleSpace.put(key, value);
 
+                // If e is 1 then the action is successful
+                if (e == 1){
+                    output += "OK (" + key + ", " + value + ") added"; 
+                }
+                else{
+                    output += "ERR (" + key + ") already exist";
+                }
             }
             else {
 
