@@ -65,6 +65,7 @@ public class Server {
                                     System.out.println("Client disconnected");
                                     break;
                                 }
+                                writer.println(processInput(request));
                             }
 
                         }
