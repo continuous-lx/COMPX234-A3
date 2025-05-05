@@ -58,8 +58,13 @@ public class Server {
                             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                             OutputStream output = threadClientSocket.getOutputStream();
                             PrintWriter writer = new PrintWriter(output, true);
+                            
                             while(true) {
                                 String request = reader.readLine();
+                                if (request == null) {
+                                    System.out.println("Client disconnected");
+                                    break;
+                                }
                             }
 
                         }
