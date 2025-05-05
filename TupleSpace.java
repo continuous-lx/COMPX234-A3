@@ -72,10 +72,13 @@ public class TupleSpace {
         }
     }
 
-    public synchronized String put(String key, String value) {
+    public synchronized int put(String key, String value) {
         if(tuples.containsKey(key) == false) {
             tuples.put(key, value);
-            return "OK ("+key+","+value+") added";
+            size += 1;
+            totalPuts += 1;
+            updateAverages();
+            return 1;
         } else {
             return "ERR"+key+"already exists.";
         }
