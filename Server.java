@@ -47,6 +47,14 @@ public class Server {
     public static void displayServerSummary() {
         System.out.println("--- Display method called at: " + System.currentTimeMillis() + " ---");
 
-        
+        System.out.println("Current size: " + tupleSpace.getSize());
+        System.out.println("Total READs : " + tupleSpace.getTotalReads());
+        System.out.println("Total GETs: " + tupleSpace.getTotalGets());
+        System.out.println("Total PUTs: " + tupleSpace.getTotalPut());
+        System.out.println("Total Errors: " + tupleSpace.getTotalErrors());
+        System.out.println("Average key size: " + tupleSpace.getAveKeySize());
+        System.out.println("Average value size: " + tupleSpace.getAveValueSize()); 
+        System.out.println("Average tuple size: " + tupleSpace.getAveTupleSize());
+        System.out.println("--------------------------------------------------");
     }
 }
