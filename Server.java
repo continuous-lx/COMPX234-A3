@@ -25,8 +25,8 @@ public class Server {
             return;
         }
 
-        try {
-            ServerSocket serverSocket = new ServerSocket(port);
+            
+        try(ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server is listening on port " + port);
 
             Thread timerThread = new Thread(()-> {
@@ -105,5 +105,9 @@ public class Server {
         System.out.println("Average value size: " + tupleSpace.getAveValueSize()); 
         System.out.println("Average tuple size: " + tupleSpace.getAveTupleSize());
         System.out.println("--------------------------------------------------");
+    }
+
+    public static String processInput(String request) {
+
     }
 }
