@@ -22,11 +22,12 @@ public class Server {
 
         try {
             ServerSocket serverSocket = new ServerSocket(port);
+            System.out.println("Server is listening on port " + port);
 
             Thread timerThread = new Thread(()-> {
 
             });
-            
+
             Socket clientSocket = serverSocket.accept();
 
         }
