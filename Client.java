@@ -13,6 +13,7 @@ public class Client {
         String filename = args[2];
 
         try (Socket socket = new Socket(hostname, port)) {
+            System.out.println("Connected successfully to server.");
             
         }
         catch (IOException e){
