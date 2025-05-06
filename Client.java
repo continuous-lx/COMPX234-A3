@@ -33,10 +33,17 @@ public class Client {
 
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine().trim();
+
                     if (line.isEmpty()){
                         continue;
                     }
+
                     String[] requestArray = line.split(" ", 3);
+                    
+                    if (requestArray.length < 2) {
+                        System.out.println("Error: Invalid command format - " + line);
+                        continue;
+                    }
                 }
             }
             catch (IOException e){
