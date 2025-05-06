@@ -54,6 +54,9 @@ public class Client {
                     }
 
                     String protocolLine = "";
+
+                    int messageLength = 6 + key.length() + value.length();
+
                 }
             }
             catch (IOException e){
