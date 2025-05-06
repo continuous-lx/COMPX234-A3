@@ -87,22 +87,22 @@ public class TupleSpace {
     }
 
     private void updateAverages() {
-            int entries = 0;
-            int totalKeySize = 0;
-            int totalValueSize = 0;
+        int entries = 0;
+        int totalKeySize = 0;
+        int totalValueSize = 0;
 
-            for(String key: tuples.keySet()) {
-                entries += 1;
+        for(String key: tuples.keySet()) {
+            entries += 1;
 
-                String value = tuples.get(key);
-                totalKeySize += key.length();
-                totalValueSize += value.length();
-            }
+            String value = tuples.get(key);
+            totalKeySize += key.length();
+            totalValueSize += value.length();
+        }
 
-            if (entries != 0){
-                aveKeysize = (double)totalKeySize / (double)entries;
-                aveValueSize = (double)totalValueSize / (double)entries;
-                aveTuplesize = ((double)totalKeySize + (double)totalValueSize) / (double)entries;
-            }
+        if (entries != 0){
+            aveKeysize = (double)totalKeySize / (double)entries;
+            aveValueSize = (double)totalValueSize / (double)entries;
+            aveTuplesize = ((double)totalKeySize + (double)totalValueSize) / (double)entries;
+        }
     }
 }
