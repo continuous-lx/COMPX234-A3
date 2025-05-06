@@ -1,4 +1,9 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Client {
@@ -14,7 +19,19 @@ public class Client {
 
         try (Socket socket = new Socket(hostname, port)) {
             System.out.println("Connected successfully to server.");
-            
+
+            try(
+                OutputStream output = socket.getOutputStream();
+                PrintWriter writer = new PrintWriter(output, true);
+                InputStream input = socket.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            ) {
+
+            }
+            catch (IOException e){
+                System.out.println("Error: " + e.getMessage());
+            }
+
         }
         catch (IOException e){
                 System.out.println("Error: " + e.getMessage());
