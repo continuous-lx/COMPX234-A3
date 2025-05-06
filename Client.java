@@ -32,7 +32,10 @@ public class Client {
                 Scanner scanner = new Scanner(file);
 
                 while (scanner.hasNextLine()) {
-                    
+                    String line = scanner.nextLine().trim();
+                    if (line.isEmpty()){
+                        continue;
+                    }
                 }
             }
             catch (IOException e){
