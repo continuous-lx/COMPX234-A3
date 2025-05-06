@@ -1,10 +1,12 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
     public static void main(String[] args) {
@@ -26,7 +28,9 @@ public class Client {
                 InputStream input = socket.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             ) {
-
+                File file = new File(filename);
+                Scanner scanner = new Scanner(file);
+                
             }
             catch (IOException e){
                 System.out.println("Error: " + e.getMessage());
