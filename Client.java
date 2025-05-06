@@ -44,6 +44,14 @@ public class Client {
                         System.out.println("Error: Invalid command format - " + line);
                         continue;
                     }
+
+                    String command = requestArray[0];
+                    String key = requestArray[1];
+                    String value = "";
+                    
+                    if (requestArray.length > 2){
+                        value = requestArray[2];
+                    }
                 }
             }
             catch (IOException e){
