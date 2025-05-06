@@ -87,6 +87,7 @@ public class Client {
 
                     protocolLine += key + " " + value;
 
+                    writer.println(protocolLine);
                 }
             }
             catch (IOException e){
