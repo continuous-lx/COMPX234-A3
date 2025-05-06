@@ -36,6 +36,7 @@ public class Client {
                     if (line.isEmpty()){
                         continue;
                     }
+                    String[] requestArray = line.split(" ", 3);
                 }
             }
             catch (IOException e){
