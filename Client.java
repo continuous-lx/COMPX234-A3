@@ -70,6 +70,20 @@ public class Client {
                         System.out.println("Error: invalid request length");
                         continue;
                     }
+
+                    if (command.equals("READ")){
+                        protocolLine += "R ";
+                    }
+                    else if (command.equals("GET")){
+                        protocolLine += "G ";
+                    }
+                    else if (command.equals("PUT")){
+                        protocolLine += "P ";
+                    }
+                    else{
+                        System.out.println("Error: invalid command");
+                        continue;
+                    }
                 }
             }
             catch (IOException e){
