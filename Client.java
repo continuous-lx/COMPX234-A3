@@ -84,6 +84,9 @@ public class Client {
                         System.out.println("Error: invalid command");
                         continue;
                     }
+
+                    protocolLine += key + " " + value;
+
                 }
             }
             catch (IOException e){
