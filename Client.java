@@ -107,8 +107,8 @@ public class Client {
 
                     String clientOutput = command + " " + key + " " + value + ": " + serverResponse;
                     System.out.println(clientOutput);
-                    
                 }
+                scanner.close();    
             }
             catch (IOException e){
                 System.out.println("Error: " + e.getMessage());
