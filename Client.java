@@ -90,6 +90,24 @@ public class Client {
                     writer.println(protocolLine);
 
                     String response = reader.readLine();
+
+                    if (response == null) {
+                        System.out.println("Error: Server closed connection");
+                        break;
+                    }
+
+                    String[] responseArray = response.split(" ", 2);
+                    String serverResponse;
+                    if (responseArray.length > 1){
+                        serverResponse = responseArray[1];
+                    }
+                    else{
+                        serverResponse = responseArray[0];
+                    }
+
+                    String clientOutput = command + " " + key + " " + value + ": " + serverResponse;
+                    System.out.println(clientOutput);
+                    
                 }
             }
             catch (IOException e){
