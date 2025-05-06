@@ -87,7 +87,6 @@ public class TupleSpace {
     }
 
     private void updateAverages() {
-        try {
             int entries = 0;
             int totalKeySize = 0;
             int totalValueSize = 0;
@@ -105,10 +104,5 @@ public class TupleSpace {
                 aveValueSize = (double)totalValueSize / (double)entries;
                 aveTuplesize = ((double)totalKeySize + (double)totalValueSize) / (double)entries;
             }
-        }
-        catch(Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
     }
 }
