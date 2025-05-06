@@ -30,7 +30,10 @@ public class Client {
             ) {
                 File file = new File(filename);
                 Scanner scanner = new Scanner(file);
-                
+
+                while (scanner.hasNextLine()) {
+                    
+                }
             }
             catch (IOException e){
                 System.out.println("Error: " + e.getMessage());
