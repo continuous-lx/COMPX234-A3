@@ -24,6 +24,7 @@ public class Client {
          PrintWriter writer = new PrintWriter(output, true);
          InputStream input = socket.getInputStream();
          BufferedReader reader = new BufferedReader(new InputStreamReader(input));) {
+        
         System.out.println("Connected successfully to server.");
 
         File file = new File(filename);
