@@ -52,6 +52,8 @@ public class Client {
                     if (requestArray.length > 2){
                         value = requestArray[2];
                     }
+
+                    String protocolLine = "";
                 }
             }
             catch (IOException e){
