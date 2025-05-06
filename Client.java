@@ -88,6 +88,8 @@ public class Client {
                     protocolLine += key + " " + value;
 
                     writer.println(protocolLine);
+
+                    String response = reader.readLine();
                 }
             }
             catch (IOException e){
