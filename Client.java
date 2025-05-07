@@ -29,12 +29,10 @@ public class Client {
              OutputStream output = socket.getOutputStream();
              PrintWriter writer = new PrintWriter(output, true);
              InputStream input = socket.getInputStream();
-             BufferedReader reader = new BufferedReader(new InputStreamReader(input));) {
+             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+             Scanner scanner = new Scanner(new File(filename))) {
             
             System.out.println("Connected successfully to server.");
-
-            File file = new File(filename);
-            Scanner scanner = new Scanner(file);
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
@@ -114,7 +112,9 @@ public class Client {
                 System.out.println(clientOutput);
             }
             scanner.close();    
-            }catch (IOException e){
+            } catch (IOException e){
+                System.out.println("Error: " + e.getMessage());
+            } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
             }
     }
