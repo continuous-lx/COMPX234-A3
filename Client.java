@@ -16,100 +16,106 @@ public class Client {
         }
 
         String hostname = args[0];
-        int port = Integer.parseInt(args[1]);
+        int port;
+        try {
+            port = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("error: " + args[1]);
+            return;
+        }
         String filename = args[2];
 
-    try (Socket socket = new Socket(hostname, port);
-         OutputStream output = socket.getOutputStream();
-         PrintWriter writer = new PrintWriter(output, true);
-         InputStream input = socket.getInputStream();
-         BufferedReader reader = new BufferedReader(new InputStreamReader(input));) {
-        
-        System.out.println("Connected successfully to server.");
-
-        File file = new File(filename);
-        Scanner scanner = new Scanner(file);
-
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine().trim();
-
-            if (line.isEmpty()){
-                continue;
-            }
-
-            String[] requestArray = line.split(" ", 3);
+        try (Socket socket = new Socket(hostname, port);
+             OutputStream output = socket.getOutputStream();
+             PrintWriter writer = new PrintWriter(output, true);
+             InputStream input = socket.getInputStream();
+             BufferedReader reader = new BufferedReader(new InputStreamReader(input));) {
             
-            if (requestArray.length < 2) {
-                System.out.println("Error: Invalid command format - " + line);
-                continue;
-            }
+            System.out.println("Connected successfully to server.");
 
-            String command = requestArray[0];
-            String key = requestArray[1];
-            String value = "";
-            
-            if (requestArray.length > 2){
-                value = requestArray[2];
-            }
+            File file = new File(filename);
+            Scanner scanner = new Scanner(file);
 
-            String protocolLine = "";
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine().trim();
 
-            int messageLength = 6 + key.length() + value.length();
-
-            if (messageLength >= 7 && messageLength <= 999){
-                if(messageLength < 10){
-                    protocolLine += "00";
+                if (line.isEmpty()){
+                    continue;
                 }
-                else if (messageLength < 100){
-                    protocolLine += "0";
+
+                String[] requestArray = line.split(" ", 3);
+                
+                if (requestArray.length < 2) {
+                    System.out.println("Error: Invalid command format - " + line);
+                    continue;
                 }
-                protocolLine += messageLength + " ";
-            }
-            else{
-                System.out.println("Error: invalid request length");
-                continue;
-            }
 
-            if (command.equals("READ")){
-                protocolLine += "R ";
-            }
-            else if (command.equals("GET")){
-                protocolLine += "G ";
-            }
-            else if (command.equals("PUT")){
-                protocolLine += "P ";
-            }
-            else{
-                System.out.println("Error: invalid command");
-                continue;
-            }
+                String command = requestArray[0];
+                String key = requestArray[1];
+                String value = "";
+                
+                if (requestArray.length > 2){
+                    value = requestArray[2];
+                }
 
-            protocolLine += key + " " + value;
+                String protocolLine = "";
 
-            writer.println(protocolLine);
+                int messageLength = 6 + key.length() + value.length();
 
-            String response = reader.readLine();
+                if (messageLength >= 7 && messageLength <= 999){
+                    if(messageLength < 10){
+                        protocolLine += "00";
+                    }
+                    else if (messageLength < 100){
+                        protocolLine += "0";
+                    }
+                    protocolLine += messageLength + " ";
+                }
+                else{
+                    System.out.println("Error: invalid request length");
+                    continue;
+                }
 
-            if (response == null) {
-                System.out.println("Error: Server closed connection");
-                break;
+                if (command.equals("READ")){
+                    protocolLine += "R ";
+                }
+                else if (command.equals("GET")){
+                    protocolLine += "G ";
+                }
+                else if (command.equals("PUT")){
+                    protocolLine += "P ";
+                }
+                else{
+                    System.out.println("Error: invalid command");
+                    continue;
+                }
+
+                protocolLine += key + " " + value;
+
+                writer.println(protocolLine);
+
+                String response = reader.readLine();
+
+                if (response == null) {
+                    System.out.println("Error: Server closed connection");
+                    break;
+                }
+
+                String[] responseArray = response.split(" ", 2);
+                String serverResponse;
+                if (responseArray.length > 1){
+                    serverResponse = responseArray[1];
+                }
+                else{
+                    serverResponse = responseArray[0];
+                }
+
+                String clientOutput = command + " " + key + " " + value + ": " + serverResponse;
+                System.out.println(clientOutput);
             }
-
-            String[] responseArray = response.split(" ", 2);
-            String serverResponse;
-            if (responseArray.length > 1){
-                serverResponse = responseArray[1];
+            scanner.close();    
+            }catch (IOException e){
+                System.out.println("Error: " + e.getMessage());
             }
-            else{
-                serverResponse = responseArray[0];
-            }
-
-            String clientOutput = command + " " + key + " " + value + ": " + serverResponse;
-            System.out.println(clientOutput);
-        }
-        scanner.close();    
-        }catch (IOException e){
-            System.out.println("Error: " + e.getMessage());
-        }
     }
 }
