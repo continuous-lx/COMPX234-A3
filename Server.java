@@ -35,8 +35,9 @@ public class Server {
                         displayServerSummary();
                         Thread.sleep(10000);
                     }
-                }
-                catch(Exception e) {
+                } catch(InterruptedException e) {
+                    System.out.println("Error in timer thread: " + e.getMessage());
+                } catch(Exception e) {
                     System.out.println("Error in timer thread: " + e.getMessage());
                 }
 
