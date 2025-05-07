@@ -61,13 +61,7 @@ public class Client {
                 int messageLength = 6 + key.length() + value.length();
 
                 if (messageLength >= 7 && messageLength <= 999){
-                    if(messageLength < 10){
-                        protocolLine += "00";
-                    }
-                    else if (messageLength < 100){
-                        protocolLine += "0";
-                    }
-                    protocolLine += messageLength + " ";
+                    protocolLine += String.format("%03d", messageLength);
                 }
                 else{
                     System.out.println("Error: invalid request length");
