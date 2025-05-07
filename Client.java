@@ -68,20 +68,22 @@ public class Client {
                     continue;
                 }
 
-                if (command.equals("READ")){
-                    protocolLine += "R ";
+                char commandChar;
+                switch (command) {
+                    case "READ":
+                        commandChar = 'R';
+                        break;
+                    case "GET":
+                        commandChar = 'G';
+                        break;
+                    case "PUT":
+                        commandChar = 'P';
+                        break;
+                    default:
+                        System.out.println("Error: invalid command");
+                        continue;
                 }
-                else if (command.equals("GET")){
-                    protocolLine += "G ";
-                }
-                else if (command.equals("PUT")){
-                    protocolLine += "P ";
-                }
-                else{
-                    System.out.println("Error: invalid command");
-                    continue;
-                }
-
+                protocolLine += commandChar + " ";
                 protocolLine += key + " " + value;
 
                 writer.println(protocolLine);
